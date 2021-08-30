@@ -1,1 +1,81 @@
-<p>product-list works!</p>
+<div class="list row">
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search by name" [(ngModel)]="name" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="searchName()">
+            Search
+          </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h6>Category: </h6>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio0" (click)="retrieveProducts()">
+            <label class="form-check-label" for="inlineRadio0">All</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" (click)="searchCategory('eletronic')">
+            <label class="form-check-label" for="inlineRadio1">Eletronic</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" (click)="searchCategory('book')">
+            <label class="form-check-label" for="inlineRadio2">Book</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" (click)="searchCategory('music')">
+            <label class="form-check-label" for="inlineRadio3">Music</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" (click)="searchCategory('home')">
+            <label class="form-check-label" for="inlineRadio4">Home</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" (click)="searchCategory('health')">
+            <label class="form-check-label" for="inlineRadio5">Health</label>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <h4>Products List</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let product of products; let i = index" [class.active]="i == currentIndex" (click)="setActiveProduct(product, i)">
+                {{ product.name }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentProduct.id">
+            <h4>product</h4>
+            <div>
+                <label><strong>Name:</strong></label> {{ currentProduct.name }}
+            </div>
+            <div>
+                <label><strong>Description:</strong></label> {{ currentProduct.description }}
+            </div>
+            <div>
+                <label><strong>Price:</strong></label> {{ currentProduct.price }}
+            </div>
+            <div>
+                <label><strong>Category:</strong></label> {{ currentProduct.category }}
+            </div>
+            <div>
+                <label><strong>Date:</strong></label> {{ currentProduct.date }}
+            </div>
+
+            <a class="btn btn-warning" routerLink="/product/{{ currentProduct.id }}">
+          Edit
+        </a>
+        </div>
+
+        <div *ngIf="!currentProduct">
+            <br />
+            <p>Please click on a product...</p>
+        </div>
+    </div>
+    <div *ngIf="products == null">
+        <p>The Products List is empty!</p>
+    </div>
+
+</div>

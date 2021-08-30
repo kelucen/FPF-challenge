@@ -1,1 +1,45 @@
-<p>product-details works!</p>
+<div>
+    <div *ngIf="currentProduct.id" class="edit-form">
+        <h4>Product</h4>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="title" [(ngModel)]="currentProduct.name" name="name" />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="currentProduct.description" name="description" />
+            </div>
+            <div class="form-group">
+                <label for="description">Price</label>
+                <input type="text" class="form-control" id="price" [(ngModel)]="currentProduct.price" name="price" />
+            </div>
+            <div class="form-group">
+                <label for="description">Category</label>
+                <input type="text" class="form-control" id="category" [(ngModel)]="currentProduct.category" name="category" />
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="text" class="form-control" id="date" [(ngModel)]="currentProduct.date" name="date" />
+            </div>
+
+        </form>
+
+        <div class="btn-form">
+            <button class="btn btn-danger" (click)="deleteProduct()">
+                Delete
+              </button>
+
+            <button type="submit" class="btn btn-success" id="update-btn" (click)="updateProduct()">
+                Update
+              </button>
+            <p>{{ message }}</p>
+        </div>
+    </div>
+
+
+    <div *ngIf="!currentProduct.id">
+        <br />
+        <p>Cannot access this Product...</p>
+    </div>
+</div>

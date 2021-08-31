@@ -31,10 +31,6 @@
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" (click)="searchCategory('home')">
             <label class="form-check-label" for="inlineRadio4">Home</label>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" (click)="searchCategory('health')">
-            <label class="form-check-label" for="inlineRadio5">Health</label>
-        </div>
     </div>
 
     <div class="col-md-6">
@@ -47,7 +43,10 @@
     </div>
     <div class="col-md-6">
         <div *ngIf="currentProduct.id">
-            <h4>product</h4>
+            <h4>Product</h4>
+            <div class="card" id="card-image">
+                <img [src]="currentProduct.image" class="card-img">
+            </div>
             <div>
                 <label><strong>Name:</strong></label> {{ currentProduct.name }}
             </div>

@@ -25,16 +25,21 @@ public class Product {
 	@Column(name = "category")
 	private String category;
 	
+	@Column(name = "image")
+	private String image;
+	
+	
 	public Product() {
 
 	}
 
-	public Product(String name, String description, String date, float price, String category) {
+	public Product(String name, String description, String date, float price, String category, String image) {
 		this.name = name;
 		this.description = description;
 		this.date = date;
 		this.price = price;
 		this.category = category;
+		this.image = image;
 	}
 
 	public long getId() {
@@ -80,9 +85,12 @@ public class Product {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	
+	public String getImage() {
+		return image;
+	}
 
-//	@Override
-//	public String toString() {
-//		return "Tutorial [id=" + id + ", title=" + title + ", desc=" + description + ", published=" + published + "]";
-//	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 }

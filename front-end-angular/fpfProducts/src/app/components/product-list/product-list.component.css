@@ -3,3 +3,8 @@
     max-width: 750px;
     margin: auto;
 }
+
+#card-image {
+    width: 200px;
+    margin-top: 10px;
+}

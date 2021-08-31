@@ -25,6 +25,13 @@
                 <label for="description">date</label>
                 <input class="form-control" id="Date" required [(ngModel)]="product.date" name="date" type="date" />
             </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="text" class="form-control" id="image" [(ngModel)]="product.image" name="image" />
+                <div class="card" id="card-image">
+                    <img [src]="product.image" class="card-img">
+                </div>
+            </div>
             <button (click)="saveProduct()" class="btn btn-success" id="btn-save">Save</button>
         </div>
 

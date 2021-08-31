@@ -15,7 +15,8 @@ export class AddProductComponent implements OnInit {
     description: '',
     date: '',
     price: 0.0,
-    category: ''
+    category: '',
+    image:''
   }
   submitted = false;
   constructor(private productService: ProductService, public datepipe: DatePipe) { }
@@ -28,7 +29,8 @@ export class AddProductComponent implements OnInit {
       description: this.product.description,
       date: this.datepipe.transform(this.product.date,'dd/MM/yyyy')?.toString(),
       price: this.product.price,
-      category: this.product.category
+      category: this.product.category,
+      image:this.product.image
     };
     this.productService.create(data)
       .subscribe(
@@ -48,7 +50,8 @@ export class AddProductComponent implements OnInit {
       description: '',
       date: '',
       price: 0.0,
-      category: ''
+      category: '',
+      image:''
     };
   }
 }

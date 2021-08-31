@@ -15,7 +15,8 @@ export class ProductDetailsComponent implements OnInit {
     description: '',
     price:0.0,
     date:'',
-    category:''
+    category:'',
+    image:''
   };
 
   message = '';

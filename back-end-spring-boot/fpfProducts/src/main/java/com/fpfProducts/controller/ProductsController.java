@@ -66,7 +66,7 @@ public class ProductsController {
 	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
 		try {
 			Product _product = productsRepository
-					.save(new Product(product.getName(), product.getDescription(), product.getDate(), product.getPrice(), product.getCategory()));
+					.save(new Product(product.getName(), product.getDescription(), product.getDate(), product.getPrice(), product.getCategory(), product.getImage()));
 			return new ResponseEntity<>(_product, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -84,6 +84,7 @@ public class ProductsController {
 			_product.setCategory(product.getCategory());
 			_product.setPrice(product.getPrice());
 			_product.setDate(product.getDate());
+			_product.setImage(product.getImage());
 			return new ResponseEntity<>(productsRepository.save(_product), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
